@@ -1,0 +1,56 @@
+# dependencies
+node_modules/
+
+# build outputs
+dist/
+build/
+.next/
+
+# environment variables
+.env
+.env.*
+
+# logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# tests / coverage
+coverage/
+.nyc_output/
+
+# temp files
+.temp/
+.tmp/
+
+# runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS
+.DS_Store
+
+# IDEs
+.idea/
+.project
+.classpath
+.settings/
+.c9/
+*.launch
+*.sublime-workspace
+
+# VSCode / Cursor
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# diagnostic reports
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
