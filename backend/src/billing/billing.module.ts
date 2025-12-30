@@ -6,9 +6,13 @@ import { BillingService } from './service/billing.service'
 import { BillingNotificationService } from './service/billing-notification.service'
 import { BillingRepository } from './repository/billing.repository'
 import { NotificationModule } from '../notification/notification.module'
+import { PrismaModule } from 'src/prisma/prisma.module'
 
 @Module({
-    imports: [NotificationModule],
+    imports: [
+        NotificationModule,
+        PrismaModule
+    ],
     controllers: [BillingController],
     providers: [
         BillingService,
