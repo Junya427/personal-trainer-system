@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Billing {
+  id              String    @id @default(uuid())
+  customerId      String    @map("customer_id")
+  billingTargetId String    @map("billing_target_id")
+  amount          Decimal   @db.Decimal(10, 2)
+  dueDate         DateTime  @map("due_date") @db.Timestamptz
+  status          String    @default("DRAFT")
+  confirmedAt     DateTime? @map("confirmed_at") @db.Timestamptz
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@map("billings")
+}
