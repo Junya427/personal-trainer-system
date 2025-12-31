@@ -2,7 +2,7 @@
 import { Injectable } from '@nestjs/common'
 import { PrismaService } from '../../prisma/prisma.service'
 import { Billing } from '../domain/billing'
-import { Decimal } from '@prisma/client/runtime/library'
+import { Prisma } from '@prisma/client'
 
 @Injectable()
 export class BillingRepository {
@@ -11,11 +11,11 @@ export class BillingRepository {
     async save(billing: Billing): Promise<void> {
         await this.prisma.billing.create({
             data: {
-                customerId: billing['targetUserId'],
-                billingTargetId: billing['targetUserId'],// TODO: 設計書に合わせて修正予定
-                amount: new Decimal(billing['amount']),
-                dueDate: billing['dueDate'],
-                status: billing['status'],
+                customerId: billing.getTargetUserId(),
+                billingTargetId: billing.getTargetUserId(),// TODO: 設計書に合わせて修正予定
+                amount: new Prisma.Decimal(billing.getAmount()),
+                dueDate: billing.getDueDate(),
+                status: billing.getStatus(),
                 confirmedAt: billing.getConfirmedAt(),
             }
         })

@@ -28,6 +28,23 @@ export class Billing {
         this.confirmedAt = now
     }
 
+    // Repositoryで使用するためのgetter
+    getTargetUserId(): string {
+        return this.targetUserId
+    }
+
+    getAmount(): number {
+        return this.amount
+    }
+
+    getDueDate(): Date {
+        return this.dueDate
+    }
+
+    getStatus(): BillingStatus {
+        return this.status
+    }
+
     // Serviceが参照するためのgetter
     getConfirmedAt(): Date | null {
         return this.confirmedAt
